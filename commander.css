@@ -1,0 +1,431 @@
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a1a, #1a1a2e, #16213e);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header-site {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header-site h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #f0c040;
+    text-shadow: 0 0 60px rgba(240, 192, 64, 0.15);
+    position: relative;
+    display: inline-block;
+}
+
+.header-site h1::after {
+    content: '✦';
+    font-size: 1.5rem;
+    color: #f0c040;
+    position: absolute;
+    top: -10px;
+    right: -35px;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(180deg);
+    }
+}
+
+.header-site .subtitle {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* ============================================
+   NOTIFICATION
+   ============================================ */
+.notification {
+    padding: 16px 22px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    animation: slideDown 0.5s ease;
+}
+
+.notification.success {
+    background: rgba(46, 213, 115, 0.12);
+    border: 1px solid rgba(46, 213, 115, 0.2);
+    color: #2ed573;
+}
+
+.notification.error {
+    background: rgba(255, 71, 87, 0.12);
+    border: 1px solid rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+}
+
+.notification i {
+    font-size: 1.3rem;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   DÉTAILS DU PLAT
+   ============================================ */
+.plat-details {
+    display: flex;
+    gap: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    align-items: center;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.plat-image {
+    flex-shrink: 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.plat-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.plat-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 3rem;
+}
+
+.plat-info {
+    flex: 1;
+}
+
+.plat-info h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.plat-description {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.plat-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.plat-price {
+    background: rgba(46, 213, 115, 0.1);
+    color: #2ed573;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.plat-categorie {
+    background: rgba(155, 89, 182, 0.1);
+    color: #9b59b6;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   FORMULAIRE
+   ============================================ */
+.commande-form {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 30px 35px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.commande-form:hover {
+    border-color: rgba(240, 192, 64, 0.1);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.form-group label i {
+    color: #f0c040;
+    margin-right: 8px;
+    width: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: rgba(240, 192, 64, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 25px rgba(240, 192, 64, 0.05);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.form-group input:read-only {
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+/* ============================================
+   BOUTONS
+   ============================================ */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #f0c040, #d4a020);
+    color: #1a1a2e;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(240, 192, 64, 0.25);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-cancel {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .header-site h1 {
+        font-size: 2.2rem;
+    }
+
+    .header-site h1::after {
+        font-size: 1.2rem;
+        right: -28px;
+        top: -8px;
+    }
+
+    .plat-details {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .plat-image {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+
+    .plat-meta {
+        justify-content: center;
+    }
+
+    .commande-form {
+        padding: 20px 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        width: 100%;
+        flex: none;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-site h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-site h1::after {
+        font-size: 1rem;
+        right: -22px;
+        top: -6px;
+    }
+
+    .plat-details {
+        padding: 15px;
+    }
+
+    .plat-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .plat-info h2 {
+        font-size: 1.2rem;
+    }
+
+    .commande-form {
+        padding: 15px 12px;
+        border-radius: 12px;
+    }
+
+    .form-group input {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(240, 192, 64, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(240, 192, 64, 0.5);
+}
